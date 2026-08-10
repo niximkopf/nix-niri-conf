@@ -13,10 +13,9 @@
     lshw        # Hardware Info
     nix-tree    # Nix Abhängigkeiten visualisieren
     nvd         # Nix Version Diff
-    niri
     xwayland-satellite
-    noctalia
     sddm-astronaut
+    bibata-cursors
 
     # ── Terminal Tools ─────────────────────────────────
     eza
@@ -37,15 +36,20 @@
     opencode
     croc
     wtf
-    cmatrix
-    cava
-    cbonsai
     bluetui
     impala
     wiremix
     ncdu
     lazygit
     discordo
+
+    # ── Design ───────────────────────────────────────────────
+    cava
+    cmatrix
+    cbonsai
+    noctalia
+    openrgb
+    vial
 
     # ── Entwicklung ───────────────────────────────────────────
     vscode
@@ -58,13 +62,13 @@
     brave
     (discord.override { withVencord = true; })
     nautilus
-    kitty
     spotify
     win2xcur
     modrinth-app
 
     # ── Editor ────────────────────────────────────────────────
     neovim
+    libreoffice
 
     # ── Media ─────────────────────────────────────────────────
     mpv
@@ -73,8 +77,5 @@
     tauon
     cmus
 
-    # ── RGB ───────────────────────────────────────────────────
-    openrgb
-    vial
-  ];
+    ];
 }
