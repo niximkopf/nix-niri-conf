@@ -10,7 +10,7 @@
         normal.family = "JetBrainsMono Nerd Font";
       };
 
-      window.opacity = 0.85; # entspricht background_opacity = "0.85"
+      window.opacity = 0.6; # entspricht background_opacity = "0.85"
 
       bell.duration = 0; # entspricht enable_audio_bell = false
 

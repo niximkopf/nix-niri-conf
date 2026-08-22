@@ -8,9 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, catppuccin, ... }: {
     nixosConfigurations = {
 
       nix-btw = nixpkgs.lib.nixosSystem {
@@ -26,6 +28,7 @@
               extraSpecialArgs = { inherit inputs; };
               users.micha = {
                 imports = [
+                  catppuccin.homeManagerModules.catppuccin
                   (import ./home.nix)
                 ];
               };

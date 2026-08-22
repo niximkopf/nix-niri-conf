@@ -269,7 +269,7 @@ spawn-at-startup "noctalia"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -333,10 +333,8 @@ window-rule {
     // block-out-from "screencast"
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
+window-rule {
+    geometry-corner-radius 20
     clip-to-geometry true
 }
 
@@ -347,6 +345,12 @@ layer-rule {
 
 prefer-no-csd
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -356,6 +360,7 @@ binds {
     // `niri msg action do-something`.
 
     Mod+Tab repeat=false { toggle-overview; }
+    MouseBack { toggle-overview; }
 
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+X repeat=false { close-window; }
@@ -417,13 +422,6 @@ binds {
     Mod+Ctrl+K     { move-window-up; }
     Mod+Ctrl+L     { move-column-right; }
 
-    // Alternative commands that move across workspaces when reaching
-    // the first or last window in a column.
-    // Mod+J     { focus-window-or-workspace-down; }
-    // Mod+K     { focus-window-or-workspace-up; }
-    // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
-
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
     Mod+Ctrl+Home { move-column-to-first; }
@@ -443,14 +441,6 @@ binds {
     Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
-    // ...
-
-    // And you can also move a whole workspace to another monitor:
-    // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
-    // ...
-
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
     Mod+U              { focus-workspace-down; }
@@ -460,30 +450,20 @@ binds {
     Mod+Ctrl+U         { move-column-to-workspace-down; }
     Mod+Ctrl+I         { move-column-to-workspace-up; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
-    // ...
-
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
 
-    // You can bind mouse wheel scroll ticks using the following syntax.
-    // These binds will change direction based on the natural-scroll setting.
-    //
-    // To avoid scrolling through workspaces really fast, you can use
-    // the cooldown-ms property. The bind will be rate-limited to this value.
-    // You can set a cooldown on any bind, but it's most useful for the wheel.
     Mod+WheelScrollDown      { focus-column-right; }
     Mod+WheelScrollUp        { focus-column-left; }
-    Mod+Ctrl+WheelScrollDown { move-column-right; }
-    Mod+Ctrl+WheelScrollUp   { move-column-left; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-right; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-left; }
 
-    Alt+WheelScrollRight     cooldown-ms=150 { focus-workspace-down; }
-    Alt+WheelScrollLeft      cooldown-ms=150 { focus-workspace-up; }
-    Alt+Ctrl+WheelScrollDown  { move-column-to-workspace-down; }
-    Alt+Ctrl+WheelScrollUp    { move-column-to-workspace-up; }
+    Alt+WheelScrollDown       { focus-workspace-down; }
+    Alt+WheelScrollUp         { focus-workspace-up; }
+    Alt+Ctrl+WheelScrollDown  cooldown-ms=150 { move-column-to-workspace-down; }
+    Alt+Ctrl+WheelScrollUp    cooldown-ms=150 { move-column-to-workspace-up; }
 
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
@@ -527,13 +507,8 @@ binds {
     Mod+Ctrl+R { reset-window-height; }
 
     Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
-
-    // While maximize-column leaves gaps and borders around the window,
-    // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
-    // This bind corresponds to normal window maximizing,
-    // e.g. by double-clicking on the titlebar.
-    Mod+Q { maximize-window-to-edges; }
+    Mod+Shift+F { maximize-window-to-edges; }
+    Mod+Alt+Shift+F { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
@@ -597,11 +572,6 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
-}
-
-window-rule {
-    geometry-corner-radius 20
-    clip-to-geometry true
 }
 
 debug {

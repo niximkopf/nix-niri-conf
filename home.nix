@@ -46,6 +46,11 @@
     };
   };
 
+  catppuccin.brave = {
+    enable = true;
+    flavor = "mocha";
+  };
+
   programs.home-manager.enable = true;
 
 }

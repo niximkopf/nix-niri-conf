@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     # ── System Tools ──────────────────────────────────────────
     git
+    nodejs
     wget
     curl
     unzip
@@ -50,6 +51,7 @@
     noctalia
     openrgb
     vial
+    (pkgs.callPackage ../../pkgs/momoisay { })
 
     # ── Entwicklung ───────────────────────────────────────────
     vscode
