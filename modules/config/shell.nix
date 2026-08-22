@@ -23,6 +23,7 @@
       ga      = "git add .";
       gc      = "git commit -m";
       ff      = "fastfetch";
+      momoi   = "momoisay -f";
     };
 
     initContent = ''
