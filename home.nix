@@ -6,6 +6,7 @@
     ./modules/config/alacritty.nix
     ./modules/config/git.nix
     ./modules/config/starship.nix
+    ./modules/config/fastfetch
   ];
 
   home = {
