@@ -59,9 +59,11 @@
     gcc
     gnumake
     quickshell
+    obsidian
 
     # ── Apps ──────────────────────────────────────────────────
     brave
+    brave-origin
     (discord.override { withVencord = true; })
     nautilus
     spotify
