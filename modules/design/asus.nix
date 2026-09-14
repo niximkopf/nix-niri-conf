@@ -1,11 +1,6 @@
 { pkgs, lib, ... }:
 
 {
-  # ── Asus Kontrolle ──────────────────────────────────────────
-  services.asusd = {
-    enable            = true;
-  };
-
   # ── OpenRGB ─────────────────────────────────────────────────
   services.hardware.openrgb.enable = true;
 
@@ -17,7 +12,6 @@
 
   # ── Wasserkühlung & Sensoren ────────────────────────────────
   environment.systemPackages = with pkgs; [
-    asusctl
     liquidctl
     lm_sensors
   ];

@@ -8,9 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nvf, ... }: {
     nixosConfigurations = {
 
       nix-btw = nixpkgs.lib.nixosSystem {
@@ -19,6 +21,7 @@
         modules = [
           ./modules
           home-manager.nixosModules.home-manager
+          nvf.nixosModules.default
           {
             home-manager = {
               useGlobalPkgs   = true;

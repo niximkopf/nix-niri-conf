@@ -12,7 +12,7 @@
     ./design/asus.nix
     ./design/fonts.nix
     ./design/sddm.nix
-    #./design/momo.nix
+    ./config/nvim.nix
   ];
 
   system.stateVersion = "25.11";

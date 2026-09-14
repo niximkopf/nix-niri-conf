@@ -62,24 +62,29 @@
     obsidian
 
     # ── Apps ──────────────────────────────────────────────────
-    brave
     brave-origin
     (discord.override { withVencord = true; })
     nautilus
     spotify
     win2xcur
     modrinth-app
+    localsend
+
+    libwacom
+    xf86_input_wacom
+    kdePackages.wacomtablet
 
     # ── Editor ────────────────────────────────────────────────
     neovim
     libreoffice
+    krita
 
     # ── Media ─────────────────────────────────────────────────
     mpv
     yt-dlp
     vlc
     tauon
-    cmus
+    rmpc
 
     ];
 }
