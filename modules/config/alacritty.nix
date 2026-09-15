@@ -10,12 +10,10 @@
         normal.family = "JetBrainsMono Nerd Font";
       };
 
-      window.opacity = 0.6; # entspricht background_opacity = "0.85"
+      window.opacity = 0.6;
 
-      bell.duration = 0; # entspricht enable_audio_bell = false
+      bell.duration = 0;
 
-      # Von Noctalia generiertes Theme einbinden (analog zu
-      # "include themes/noctalia.conf" in kitty.nix)
       general.import = [ "~/.config/alacritty/themes/noctalia.toml" ];
     };
   };

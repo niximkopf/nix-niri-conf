@@ -19,7 +19,7 @@ input {
 
             // For example:
             layout "us,de,ru"
-            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+            options "grp:alt_shift_toggle"
 
             // If this section is empty, niri will fetch xkb settings
             // from org.freedesktop.locale1. You can control these using
@@ -313,15 +313,6 @@ window-rule {
     default-column-width {}
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -335,8 +326,17 @@ window-rule {
 }
 
 window-rule {
+    open-maximized true
     geometry-corner-radius 20
     clip-to-geometry true
+}
+
+window-rule {
+    match app-id="^Alacritty$"
+    //open-maximized false
+    background-effect {
+        blur true
+    }
 }
 
 layer-rule {
@@ -366,16 +366,19 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+X repeat=false { close-window; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+Return { spawn "alacritty" "-e" "zsh" "-c" "fastfetch; exec zsh"; }
     Mod+T { spawn "alacritty" "-e" "btop"; }
     Mod+B { spawn "alacritty" "-e" "bluetui"; }
-    Mod+W { spawn "alacritty" "-e" "impala"; }
+    Mod+W { spawn "alacritty" "-e" "nvim"; }
     Mod+S { spawn "alacritty" "-e" "wiremix"; }
-    Mod+C { spawn "discord"; }
-    Mod+G { spawn "brave"; }
-    Mod+E { spawn "alacritty" "-e" "yazi"; }
-    Mod+semicolon { spawn "alacritty" "-e" "neovim"; }
-    Mod+M { spawn "alacritty" "-e" "cmus"; }
+    Mod+D { spawn "alacritty" "-e" "ncdu"; }
+    Mod+C { spawn "vscode"; }
+    Mod+E { spawn "nautilus"; }
+    //Mod+E { spawn "alacritty" "-e" "yazi"; }
+    //Mod+M { spawn "alacritty" "-e" "cmus"; }
+
+    Mod+Shift+S { spawn "noctalia" "msg" "screenshot-region"; }
+    Mod+Shift+R { spawn "noctalia" "msg" "screen-recorder"; }
 
     Mod+Space   { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
     Mod+A       { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
@@ -501,8 +504,6 @@ binds {
 
     // Cycle through widths set in preset-column-widths.
     Mod+R { switch-preset-column-width; }
-    // Cycling through the presets in reverse order is also possible.
-    Mod+Shift+R { switch-preset-column-width-back; }
 
     Mod+Ctrl+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }

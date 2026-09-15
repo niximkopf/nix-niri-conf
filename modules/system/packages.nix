@@ -38,16 +38,13 @@
     croc
     wtf
     bluetui
-    impala
     wiremix
     ncdu
     lazygit
-    discordo
 
     # ── Design ───────────────────────────────────────────────
     cava
     cmatrix
-    cbonsai
     noctalia
     openrgb
     vial
@@ -60,6 +57,7 @@
     gnumake
     quickshell
     obsidian
+    blender
 
     # ── Apps ──────────────────────────────────────────────────
     brave-origin
@@ -83,7 +81,6 @@
     mpv
     yt-dlp
     vlc
-    tauon
     rmpc
 
     ];
