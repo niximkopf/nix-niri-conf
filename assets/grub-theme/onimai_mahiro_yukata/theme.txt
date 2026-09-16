@@ -1,0 +1,67 @@
+# DESKTOP_IMAGE*
+desktop-image: "background.png"
+desktop-image-scale-method: "crop"
+
+# TITLE_TEXT*
+title-text: " "
+
+# MESSAGE_FONT*
+message-font: "Maple Mono NF CN Regular 22"
+
++ image {
+  id = "brand"
+
+  # BRAND_FILE*
+  left = 0
+  width = 850
+  top = 54
+  height = 172
+  file = "brand.png"
+}
+
++ boot_menu {
+  # BOOT_MENU*
+  left = 0
+  width = 667
+  top = 300
+  height = 84%-300
+
+  # ICON*
+  icon_width = 36
+  icon_height = 36
+
+  # ITEM*
+  item_height = 68
+  item_padding = 0
+  item_icon_space = 18
+  item_spacing = 16
+  item_color = "#ee858c"
+  item_font = "Maple Mono NF CN Regular 22"
+  item_pixmap_style = "item_*.png"
+
+  # SELECTED_ITEM*
+  selected_item_color = "#926453"
+  selected_item_font = "Maple Mono NF CN Regular 22"
+  selected_item_pixmap_style = "selected_item_*.png"
+}
+
++ label {
+  id = "__timeout__"
+
+  # TIMEOUT*
+  left = 77
+  top = 246
+  align = center
+  font = "Maple Mono NF CN Regular 22"
+  text = "Selected OS will be booted in %d seconds"
+  color = "#777777"
+}
+
+# TERMINAL*
+terminal-font: "Maple Mono NF CN Regular 19"
+terminal-box: "terminal_box_*.png"
+terminal-left: "36"
+terminal-width: "48%"
+terminal-top: "263"
+terminal-height: "88%-263"
+terminal-border: "0"

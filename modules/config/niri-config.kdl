@@ -134,7 +134,7 @@ layout {
         inactive-color "#4c3a70"
 
         // Color of the border around windows that request your attention.
-        //urgent-color "#9b0000"
+        //urgent-color "#4c3a70"
     }
 
     // You can enable drop shadows for windows.

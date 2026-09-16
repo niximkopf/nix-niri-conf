@@ -1,0 +1,37 @@
+title-text: ""
+desktop-image: "background.jpg"
+terminal-left: "0"
+terminal-top: "0"
+terminal-border: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+
++ boot_menu {
+  left = 5%
+  top = 28%
+  width = 39%
+  height = 55%          # 稍微调高一点，防止选项多了显示不全
+  item_font = "Sarasa 16"  # 建议指定字号，防止字体过大撑破布局
+  item_color = "#5092DE"
+  selected_item_color = "#9B70FF"
+
+  icon_width = 36
+  icon_height = 36
+  item_icon_space = 20
+  item_height = 65
+  item_padding = 5       # 稍微增加内边距，让文字不贴边
+  item_spacing = 10
+  selected_item_pixmap_style = "select_*.png"
+}
+
++ label {
+  # 【修改点3】修复倒计时位置
+  left = 5%            # 从屏幕最左侧开始
+  top = 75%            # 稍微往下挪一点，避免被笔记本下边框遮挡
+  width = 100%         # 占满全屏宽度，配合 center 实现绝对居中
+  align = "center"
+  id = "__timeout__"
+  text = "当前已选项将 %d 秒后启动"
+  color = "#FCF292"
+  font = "Sarasa 14"   # 给倒计时也指定一个较小的字号
+}

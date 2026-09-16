@@ -18,7 +18,7 @@ in {
     settings = {
       Theme = {
         Current = "sddm-astronaut-theme";
-        CursorTheme = "Bibata-Modern-Classic";
+        CursorTheme = "hoshino-ai-pixel-cursors";
         CursorSize = 24;
       };
     };
@@ -30,5 +30,6 @@ in {
   environment.systemPackages = with pkgs; [
     custom-sddm-astronaut
     kdePackages.qtmultimedia
+    (pkgs.callPackage ../../pkgs/hoshino-cursors { })
   ];
 }

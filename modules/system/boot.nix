@@ -8,7 +8,7 @@
 	      enable  = true;
 	      device  = "nodev";
 	      efiSupport = true;
-        theme = ../../assets/grub-theme/CRT-TV;
+        theme = ../../assets/grub-theme/hollow-grub;
       };
       efi.canTouchEfiVariables = true;
     };
