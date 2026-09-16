@@ -1,0 +1,67 @@
+# Background and Terminal Settings
+title-text: "" 
+desktop-image: "background_16x9.png"
+terminal-left: "0"
+terminal-top: "0"
+terminal-border: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+
+# Boot Menu Settings
++ boot_menu {
+  left = 12%
+  top = 17%
+  width = 65%
+  height = 70%
+  item_color = "#04DD03"  
+  item_font = "Samsung CRT TV (extremely close to) 3x Regular 64"
+  selected_item_font = "Samsung CRT TV (extremely close to) 3x Regular 64"
+  selected_item_color = "#ffe600"
+  icon_width = 64
+  icon_height = 64
+  item_icon_space = 45
+  item_height = 50
+  item_padding = 30
+  item_spacing = 35  
+}
+
+# Progress Bar Settings
+
+### --- BAR
++ progress_bar {
+  id = "__timeout__"
+  left = 25%
+  top = 82%
+  height = 3%  
+  width = 50%
+  bar_style = "*.png"
+  highlight_style = "progress_hl_*.png"
+}
+
+### --- VOLUME
++ progress_bar {
+  id = "__timeout__"
+  left = 21%
+  top = 76%
+  height = 2%  
+  width = 0%
+  font = "Samsung CRT TV (extremely close to) 3x Regular 64" 
+  text_color = "#04DD03"  
+  text = "VOLUME"
+  bar_style = "*"
+  highlight_style = "*"
+}
+
+### --- SECONDS
++ progress_bar {
+  id = "__timeout__"
+  left = 70%
+  top = 76%
+  height = 2%  
+  width = 0%
+  font = "Samsung CRT TV (extremely close to) 3x Regular 64" 
+  text_color = "#04DD03"  
+  text = "%d"
+  bar_style = "*"
+  highlight_style = "*"
+}

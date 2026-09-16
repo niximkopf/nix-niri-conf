@@ -3,15 +3,12 @@
 {
   boot = {
     loader = {
-      #systemd-boot = {
-      #  enable = true;
-      #  editor = false;
-      #};
       systemd-boot.enable = false;
       grub = {
 	      enable  = true;
 	      device  = "nodev";
 	      efiSupport = true;
+        theme = ../../assets/grub-theme/CRT-TV;
       };
       efi.canTouchEfiVariables = true;
     };

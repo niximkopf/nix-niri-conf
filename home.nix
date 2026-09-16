@@ -1,18 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  hoshino-cursors = pkgs.stdenvNoCC.mkDerivation {
-    pname = "hoshino-ai-pixel-cursors";
-    version = "1.0";
-    src = ./assets/hoshino-ai-pixel-cursors.tar.xz;
-    dontUnpack = false;  # tar.xz wird automatisch entpackt, da erkanntes Format
-    installPhase = ''
-      mkdir -p $out/share/icons/hoshino-ai-pixel-cursors
-      cp -r hoshino-ai-pixel-cursors/* $out/share/icons/hoshino-ai-pixel-cursors/
-    '';
-  };
-in
-
 {
   imports = [
     ./modules/config/shell.nix
@@ -31,7 +18,10 @@ in
       enable = true;
       gtk.enable = true;
       x11.enable = true;
-      package = hoshino-cursors;
+      package = pkgs.runCommand "hoshino-ai-pixel-cursors" {} ''
+        mkdir -p $out/share/icons/hoshino-ai-pixel-cursors
+        cp -r ${./assets/cursor/hoshino-ai-pixel-cursors}/* $out/share/icons/hoshino-ai-pixel-cursors/
+      '';
       name = "hoshino-ai-pixel-cursors";
       size = 24;
     };   
