@@ -17,6 +17,7 @@
     xwayland-satellite
     sddm-astronaut
     bibata-cursors
+    #ventoy
 
     # ── Terminal Tools ─────────────────────────────────
     eza
@@ -67,6 +68,7 @@
     win2xcur
     modrinth-app
     localsend
+    easyeffects
 
     libwacom
     xf86_input_wacom

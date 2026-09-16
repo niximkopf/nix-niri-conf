@@ -1,5 +1,18 @@
 { config, pkgs, ... }:
 
+let
+  hoshino-cursors = pkgs.stdenvNoCC.mkDerivation {
+    pname = "hoshino-ai-pixel-cursors";
+    version = "1.0";
+    src = ./assets/hoshino-ai-pixel-cursors.tar.xz;
+    dontUnpack = false;  # tar.xz wird automatisch entpackt, da erkanntes Format
+    installPhase = ''
+      mkdir -p $out/share/icons/hoshino-ai-pixel-cursors
+      cp -r hoshino-ai-pixel-cursors/* $out/share/icons/hoshino-ai-pixel-cursors/
+    '';
+  };
+in
+
 {
   imports = [
     ./modules/config/shell.nix
@@ -18,8 +31,8 @@
       enable = true;
       gtk.enable = true;
       x11.enable = true;
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
+      package = hoshino-cursors;
+      name = "hoshino-ai-pixel-cursors";
       size = 24;
     };   
   };
@@ -43,7 +56,9 @@
     enable = true;
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      package = pkgs.papirus-icon-theme.override {
+        color = "violet";
+      };
     };
   };
 
