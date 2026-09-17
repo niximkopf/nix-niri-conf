@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       user = {
-        Name = "Pommper"; # Replace with your actual name
+        Name = "niximkopf"; # Replace with your actual name
         Email = "michi.dyck06@gmail.com"; # Replace with your actual email
       };
       init.defaultBranch = "main";

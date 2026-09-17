@@ -18,7 +18,7 @@ in {
     settings = {
       Theme = {
         Current = "sddm-astronaut-theme";
-        CursorTheme = "hoshino-ai-pixel-cursors";
+        CursorTheme = "mornye-wuwa-cursors";
         CursorSize = 24;
       };
     };
@@ -30,6 +30,6 @@ in {
   environment.systemPackages = with pkgs; [
     custom-sddm-astronaut
     kdePackages.qtmultimedia
-    (pkgs.callPackage ../../pkgs/hoshino-cursors { })
+    (pkgs.callPackage ../../pkgs/cursor/mornye-wuwa-cursors { })
   ];
 }

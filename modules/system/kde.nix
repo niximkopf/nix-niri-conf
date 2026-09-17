@@ -15,5 +15,8 @@
         plasma-browser-integration
         dolphin
         dolphin-plugins
+        kwalletmanager
+        spectacle
+        qrca
     ];
 }

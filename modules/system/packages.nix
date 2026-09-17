@@ -42,6 +42,7 @@
     wiremix
     ncdu
     lazygit
+    file
 
     # ── Design ───────────────────────────────────────────────
     cava

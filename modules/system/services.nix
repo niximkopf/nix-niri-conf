@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib,  ... }:
 
 {
   # aktivieren
@@ -38,6 +38,7 @@
         wayland.enable  = true;
       };
       sessionPackages = [ pkgs.niri ];
+      defaultSession = lib.mkForce "niri";
     };
 
     pipewire = {

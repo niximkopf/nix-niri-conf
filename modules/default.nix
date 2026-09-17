@@ -7,7 +7,7 @@
     ./system/boot.nix
     ./system/nix.nix
     ./system/packages.nix
-    #./system/kde.nix
+    ./system/kde.nix
     ./system/timezone.nix
     ./system/user.nix
     ./design/asus.nix
