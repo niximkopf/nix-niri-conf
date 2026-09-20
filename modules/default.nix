@@ -10,9 +10,9 @@
     ./system/kde.nix
     ./system/timezone.nix
     ./system/user.nix
-    ./design/asus.nix
-    ./design/fonts.nix
-    ./design/sddm.nix
+    ./system/asus.nix
+    ./system/fonts.nix
+    ./config/sddm.nix
     ./config/nvim.nix
   ];
 

@@ -8,7 +8,7 @@
 	      enable  = true;
 	      device  = "nodev";
 	      efiSupport = true;
-        theme = ../../assets/grub-theme/Stardew-Valley;
+        theme = ../../assets/grub-theme/KayokoOnikataGRUB;
       };
       efi.canTouchEfiVariables = true;
     };

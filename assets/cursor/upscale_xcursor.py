@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
 Skaliert ein Xcursor-Theme (bitmap-basiert) per Nearest-Neighbor um einen
-ganzzahligen Faktor hoch, ohne den Pixel-Art-Look zu verwischen.
+(auch nicht-ganzzahligen) Faktor, ohne den Pixel-Art-Look zu verwischen.
 
 Nutzung: upscale_xcursor.py <input_theme_dir> <output_theme_dir> <faktor>
+Faktor kann z.B. 1.5, 2, 2.5 etc. sein.
 """
 import os
 import struct
@@ -35,12 +36,6 @@ def read_xcursor(path):
     for chunk_type, subtype, position in toc:
         if chunk_type != IMAGE_TYPE:
             continue
-        c_header_size, c_type, c_subtype, c_version = struct.unpack_from(
-            "<IIII", data, position
-        )
-        # Die 16-Byte-Basis-Chunk-Kopfzeile, NICHT c_header_size (der Wert
-        # "header_size" umfasst bei Image-Chunks zusaetzlich schon die
-        # folgenden 20 Byte Bildmetadaten, siehe Xcursor-Dateiformat-Spec).
         p = position + 16
         width, height, xhot, yhot, delay = struct.unpack_from("<IIIII", data, p)
         p += 20
@@ -61,25 +56,26 @@ def read_xcursor(path):
 
 
 def upscale_pixels(pixels, width, height, factor):
-    """Nearest-Neighbor-Upscale eines ARGB32-Pixelpuffers."""
-    out = bytearray(width * factor * height * factor * 4)
-    new_w = width * factor
-    for y in range(height):
-        src_row_start = y * width * 4
-        src_row = pixels[src_row_start : src_row_start + width * 4]
-        # Zeile horizontal strecken
-        stretched = bytearray(new_w * 4)
-        for x in range(width):
-            px = src_row[x * 4 : x * 4 + 4]
-            for k in range(factor):
-                dst = (x * factor + k) * 4
-                stretched[dst : dst + 4] = px
-        # Zeile vertikal duplizieren
-        for k in range(factor):
-            dst_y = y * factor + k
-            dst_start = dst_y * new_w * 4
-            out[dst_start : dst_start + new_w * 4] = stretched
-    return bytes(out)
+    """Nearest-Neighbor-Upscale eines ARGB32-Pixelpuffers um einen
+    beliebigen (auch gebrochenen) Faktor."""
+    new_w = max(1, round(width * factor))
+    new_h = max(1, round(height * factor))
+    out = bytearray(new_w * new_h * 4)
+
+    # Fuer jede Ziel-Spalte/-Zeile die naechstliegende Quell-Spalte/-Zeile
+    # vorab berechnen (klassisches Nearest-Neighbor-Resampling).
+    src_x = [min(width - 1, int(x / factor)) for x in range(new_w)]
+    src_y = [min(height - 1, int(y / factor)) for y in range(new_h)]
+
+    for dy, sy in enumerate(src_y):
+        src_row_start = sy * width * 4
+        dst_row_start = dy * new_w * 4
+        for dx, sx in enumerate(src_x):
+            s = src_row_start + sx * 4
+            d = dst_row_start + dx * 4
+            out[d : d + 4] = pixels[s : s + 4]
+
+    return bytes(out), new_w, new_h
 
 
 def write_xcursor(path, frames):
@@ -88,11 +84,10 @@ def write_xcursor(path, frames):
     toc_size = ntoc * 12
     header = struct.pack("<4sIII", MAGIC, header_size, FILE_VERSION, ntoc)
 
-    # TOC-Positionen erst berechnen: header + toc, dann Chunks nacheinander
     positions = []
     pos = header_size + toc_size
-    base_chunk_header_size = 16  # header_size,type,subtype,version
-    image_meta_size = 20  # width,height,xhot,yhot,delay
+    base_chunk_header_size = 16
+    image_meta_size = 20
     chunk_header_field = base_chunk_header_size + image_meta_size  # = 36
     for fr in frames:
         positions.append(pos)
@@ -130,10 +125,9 @@ def main():
         print(__doc__)
         sys.exit(1)
 
-    src_dir, dst_dir, factor = sys.argv[1], sys.argv[2], int(sys.argv[3])
+    src_dir, dst_dir, factor = sys.argv[1], sys.argv[2], float(sys.argv[3])
     os.makedirs(dst_dir, exist_ok=True)
 
-    # index.theme (und ggf. weitere Metadateien) unveraendert kopieren
     for name in os.listdir(src_dir):
         src_path = os.path.join(src_dir, name)
         if name == "cursors":
@@ -161,30 +155,28 @@ def main():
         except Exception as e:
             print(f"UEBERSPRINGE {name}: {e}")
             continue
+
         new_frames = []
         for fr in frames:
             if len(fr["pixels"]) != fr["width"] * fr["height"] * 4:
-                print(
-                    f"UEBERSPRINGE {name}: inkonsistente Framegroesse "
-                    f"(w={fr['width']} h={fr['height']} pixels={len(fr['pixels'])})"
-                )
+                print(f"UEBERSPRINGE Frame in {name}: inkonsistente Framegroesse")
                 continue
-            new_pixels = upscale_pixels(
+            new_pixels, new_w, new_h = upscale_pixels(
                 fr["pixels"], fr["width"], fr["height"], factor
             )
             new_frames.append(
                 {
-                    "size": fr["size"] * factor,
-                    "width": fr["width"] * factor,
-                    "height": fr["height"] * factor,
-                    "xhot": fr["xhot"] * factor,
-                    "yhot": fr["yhot"] * factor,
+                    "size": max(1, round(fr["size"] * factor)),
+                    "width": new_w,
+                    "height": new_h,
+                    "xhot": min(new_w - 1, round(fr["xhot"] * factor)),
+                    "yhot": min(new_h - 1, round(fr["yhot"] * factor)),
                     "delay": fr["delay"],
                     "pixels": new_pixels,
                 }
             )
         write_xcursor(os.path.join(dst_cursor_dir, name), new_frames)
-        print(f"skaliert: {name} ({len(frames)} frame(s))")
+        print(f"skaliert: {name} ({len(frames)} frame(s)) -> {new_frames[0]['width']}x{new_frames[0]['height']}")
 
     for name, target in symlinks.items():
         link_path = os.path.join(dst_cursor_dir, name)

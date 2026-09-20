@@ -1,0 +1,212 @@
+[backdrop]
+enabled = true
+
+[bar]
+order = [ "default" ]
+
+    [bar.default]
+    background_opacity = 0.44999998994171619
+    border = "primary"
+    capsule_thickness = 0.74999998696148396
+    center = [ "clock", "bar" ]
+    end = [ "recorder", "screenshot", "media", "tray", "notifications", "clipboard", "bluetooth", "volume", "session" ]
+    font_family = "JetBrainsMono NF"
+    margin_ends = 0
+    position = "left"
+    radius = 0
+    radius_bottom_left = 0
+    radius_top_left = 0
+    start = [ "launcher", "todo", "wallpaper", "workspaces", "audio_visualizer", "cat" ]
+    thickness = 40
+    widget_spacing = 10
+
+        [bar.default.monitor.DP-1]
+        position = "right"
+
+[control_center]
+hidden_tabs = [ "monitor", "power", "network", "weather" ]
+width = 900
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@DP-2" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1258.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "DP-2"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[osd]
+position = "top_right"
+position_vertical = "top_right"
+
+[plugins]
+enabled = [ "dotnetrob/cat", "noctalia/kaomoji", "nightwatch75/todo", "noctalia/timer", "noctalia/screen_recorder" ]
+
+[shell]
+app_icon_color = "primary"
+app_icon_colorize = true
+avatar_path = "/home/micha/Pictures/PFP/emilia thuglife.jpeg"
+font_family = "Material Design Icons"
+
+    [shell.screen_corners]
+    enabled = true
+    size = 16
+
+    [shell.screenshot]
+    directory = "/home/micha/Pictures/screenshots"
+
+[theme]
+builtin = "Ayu"
+community_palette = "Lilac AMOLED"
+mode = "dark"
+pure_black_dark = true
+source = "community"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "alacritty", "btop", "cava", "gtk3", "gtk4", "kcolorscheme", "niri", "qt", "starship" ]
+    community_ids = [
+        "opencode",
+        "discord",
+        "blender",
+        "libreoffice",
+        "neovim",
+        "vscode",
+        "steam",
+        "fastfetch",
+        "papirus-icons",
+        "bat",
+        "lazygit",
+        "yazi"
+    ]
+
+[wallpaper]
+directory = "/home/micha/Pictures/wallpaper"
+directory_dark = "/home/micha/Pictures/wallpaper"
+
+    [wallpaper.default]
+    path = "/home/micha/Pictures/wallpaper/wallhaven-rqj26q.png"
+
+    [wallpaper.last]
+    path = "/home/micha/Pictures/wallpaper/fav/train-sideview.png"
+
+    [wallpaper.monitors.DP-1]
+    path = "/home/micha/Pictures/wallpaper/fav/train-sideview.png"
+
+    [wallpaper.monitors.DP-2]
+    path = "/home/micha/Pictures/wallpaper/fav/purple-horizon.jpg"
+
+[widget.audio_visualizer]
+bands = 30
+width = 45
+
+[widget.bar]
+type = "noctalia/timer:bar"
+
+[widget.cat]
+cat_size = 28
+run_threshold = 50
+type = "dotnetrob/cat:cat"
+walk_threshold = 10
+
+[widget.control-center]
+enabled = false
+
+[widget.launcher]
+capsule = true
+capsule_opacity = 0.75
+capsule_radius = 8
+custom_image = "/home/micha/.nixos/assets/icons/nixos-customized (1).svg"
+
+[widget.media]
+enabled = false
+
+[widget.network]
+enabled = false
+
+[widget.recorder]
+capsule = true
+capsule_opacity = 0.55000000000000004
+capsule_radius = 8
+type = "noctalia/screen_recorder:recorder"
+
+[widget.screenshot]
+enabled = false
+
+[widget.session]
+capsule = true
+capsule_opacity = 0.75
+capsule_radius = 8
+
+[widget.todo]
+type = "nightwatch75/todo:todo"
+
+[widget.tray]
+enabled = false
+
+[widget.wallpaper]
+enabled = false

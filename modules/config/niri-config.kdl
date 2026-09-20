@@ -71,11 +71,6 @@ output "DP-2" {
 	position x=0 y=0
 }
 
-//cursor {
-//    xcursor-theme "mornye-wuwa-cursors"
-//    xcursor-size 24
-//}
-
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
@@ -246,6 +241,13 @@ window-rule {
     }
 }
 
+window-rule {
+    match app-id="nemo"
+    background-effect {
+        blur true
+    }
+}
+
 layer-rule {
 	match namespace="^noctalia-backdrop"
 	place-within-backdrop true
@@ -274,7 +276,7 @@ binds {
     Mod+S { spawn "alacritty" "-e" "wiremix"; }
     Mod+D { spawn "alacritty" "-e" "ncdu"; }
     Mod+C { spawn "vscode"; }
-    Mod+E { spawn "nautilus"; }
+    Mod+E { spawn "nemo"; }
     //Mod+E { spawn "alacritty" "-e" "yazi"; }
     //Mod+M { spawn "alacritty" "-e" "cmus"; }
 

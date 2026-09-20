@@ -17,7 +17,7 @@
     xwayland-satellite
     sddm-astronaut
     bibata-cursors
-    #ventoy
+    qbittorrent
 
     # ── Terminal Tools ─────────────────────────────────
     eza
@@ -64,7 +64,7 @@
     # ── Apps ──────────────────────────────────────────────────
     brave-origin
     (discord.override { withVencord = true; })
-    nautilus
+    nemo-with-extensions
     spotify
     win2xcur
     modrinth-app

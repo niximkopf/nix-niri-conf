@@ -9,6 +9,6 @@ stdenvNoCC.mkDerivation {
     python3 ${../../../assets/cursor/upscale_xcursor.py} \
       ${../../../assets/cursor/mornye-wuwa-cursors} \
       $out/share/icons/mornye-wuwa-cursors \
-      2
+      1.25
   '';
 }

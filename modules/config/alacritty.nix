@@ -7,10 +7,10 @@
     settings = {
       font = {
         size = 13;
-        normal.family = "JetBrainsMono Nerd Font";
+        normal.family = "JetBrainsMono Nerd Font"; #JetBrainsMono Nerd Font
       };
 
-      window.opacity = 0.6;
+      window.opacity = 0.5;
 
       bell.duration = 0;
 

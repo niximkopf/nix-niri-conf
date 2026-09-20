@@ -27,7 +27,6 @@
     };
 
     gvfs.enable = true;
-    #getty.autologinUser = "micha";
 
     power-profiles-daemon.enable = true;
     upower.enable = true;
