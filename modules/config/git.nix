@@ -6,7 +6,7 @@
     settings = {
       user = {
         Name = "niximkopf"; # Replace with your actual name
-        Email = "michi.dyck06@gmail.com"; # Replace with your actual email
+        Email = "niximkopf@proton.me"; # Replace with your actual email
       };
       init.defaultBranch = "main";
       pull.rebase = true;
