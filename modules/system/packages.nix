@@ -85,6 +85,7 @@
     yt-dlp
     vlc
     rmpc
+    (pkgs.callPackage ../../pkgs/aniworld { })
 
     ];
 }
