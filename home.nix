@@ -43,10 +43,10 @@
   gtk = {
     enable = true;
     theme = {
-      name = "catppuccin-mocha-lavender-standard";
+      name = "catppuccin-mocha-mauve-standard";
       package = pkgs.catppuccin-gtk.override {
         variant = "mocha";
-        accents = [ "lavender" ];
+        accents = [ "mauve" ];
         size = "standard";
       };
     };
@@ -63,13 +63,14 @@
     };
   };
 
-  #gtk3.extraConfig = {
-  #  gtk-application-prefer-dark-theme = 1;
-  #  gtk-theme-name = "Adwaita";
-  #};
-  #gtk4.extraConfig = {
-  #  gtk-application-prefer-dark-theme = 1;
-  #};
+  dconf.enable = true;
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "catppuccin-mocha-mauve-standard";
+      icon-theme = "Papirus-Dark";
+    };
+  };
 
   programs.home-manager.enable = true;
 
