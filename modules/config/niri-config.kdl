@@ -58,7 +58,7 @@ input {
 // https://niri-wm.github.io/niri/Configuration:-Outputs
 output "DP-1" {
 	mode "2560x1440@170.002"
-	scale 1.25
+	scale 1.0
 	transform "normal"
 	position x=1730 y=0
 	focus-at-startup
@@ -66,7 +66,7 @@ output "DP-1" {
 
 output "DP-2" {
 	mode "1920x1080@199.984"
-	scale 1.11
+	scale 1.0
 	transform "normal"
 	position x=0 y=0
 }
@@ -229,7 +229,7 @@ animations {
 
 window-rule {
     open-maximized true
-    geometry-corner-radius 20
+    geometry-corner-radius 10
     clip-to-geometry true
 }
 
@@ -243,6 +243,7 @@ window-rule {
 
 window-rule {
     match app-id="nemo"
+    opacity 0.7
     background-effect {
         blur true
     }
@@ -275,7 +276,7 @@ binds {
     Mod+W { spawn "alacritty" "-e" "nvim"; }
     Mod+S { spawn "alacritty" "-e" "wiremix"; }
     Mod+D { spawn "alacritty" "-e" "ncdu"; }
-    Mod+C { spawn "vscode"; }
+    Mod+C { spawn "code"; }
     Mod+E { spawn "nemo"; }
     //Mod+E { spawn "alacritty" "-e" "yazi"; }
     //Mod+M { spawn "alacritty" "-e" "cmus"; }

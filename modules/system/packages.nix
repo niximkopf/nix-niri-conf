@@ -9,14 +9,12 @@
     curl
     unzip
     psmisc
-    pciutils    # lspci
-    usbutils    # lsusb
-    lshw        # Hardware Info
-    nix-tree    # Nix Abhängigkeiten visualisieren
-    nvd         # Nix Version Diff
+    pciutils
+    usbutils
+    lshw
+    nix-tree
+    nvd        
     xwayland-satellite
-    sddm-astronaut
-    bibata-cursors
     qbittorrent
 
     # ── Terminal Tools ─────────────────────────────────
@@ -28,16 +26,13 @@
     procs
     zoxide
     fzf
-    fastfetch
     delta
     gitui
-    yazi
     atuin
     zellij
     btop
     opencode
     croc
-    wtf
     bluetui
     wiremix
     ncdu
@@ -45,6 +40,9 @@
     file
 
     # ── Design ───────────────────────────────────────────────
+    sddm-astronaut
+    bibata-cursors
+    fastfetch
     cava
     cmatrix
     noctalia
@@ -53,37 +51,31 @@
     (pkgs.callPackage ../../pkgs/momoisay { })
 
     # ── Entwicklung ───────────────────────────────────────────
-    vscode
     python3
     gcc
     gnumake
     quickshell
-    obsidian
-    blender
 
     # ── Apps ──────────────────────────────────────────────────
     brave-origin
     (discord.override { withVencord = true; })
     nemo-with-extensions
-    spotify
     win2xcur
     modrinth-app
     localsend
     easyeffects
 
-    libwacom
-    xf86_input_wacom
-    kdePackages.wacomtablet
-
     # ── Editor ────────────────────────────────────────────────
     neovim
     libreoffice
     krita
+    blender
+    obsidian
+    vscode
 
     # ── Media ─────────────────────────────────────────────────
     mpv
     yt-dlp
-    vlc
     rmpc
     (pkgs.callPackage ../../pkgs/aniworld { })
 

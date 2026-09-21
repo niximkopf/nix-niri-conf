@@ -19,7 +19,7 @@ in {
       Theme = {
         Current = "sddm-astronaut-theme";
         CursorTheme = "mornye-wuwa-cursors";
-        CursorSize = 24;
+        CursorSize = 36;
       };
     };
     extraPackages = with pkgs; [
