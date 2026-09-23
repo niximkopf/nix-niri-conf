@@ -49,6 +49,7 @@
     openrgb
     vial
     (pkgs.callPackage ../../pkgs/momoisay { })
+    kitty-themes
 
     # ── Entwicklung ───────────────────────────────────────────
     python3

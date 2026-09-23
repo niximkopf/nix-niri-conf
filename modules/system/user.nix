@@ -5,10 +5,10 @@
     isNormalUser = true;
     shell        = pkgs.zsh;
     extraGroups  = [
-      "wheel"          # sudo
+      "wheel"
       "networkmanager"
-      "plugdev"        # OpenRGB / liquidctl
-      "libvirtd"       # VM (Desktop)
+      "plugdev"
+      "libvirtd"
       "video"
       "audio"
     ];

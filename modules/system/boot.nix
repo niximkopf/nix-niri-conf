@@ -12,7 +12,6 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    # Neuester stabiler Kernel (wegen rx9070xt)
     kernelPackages = pkgs.linuxPackages_latest;
   };
 }

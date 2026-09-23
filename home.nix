@@ -3,10 +3,10 @@
 {
   imports = [
     ./modules/config/shell.nix
-    ./modules/config/alacritty.nix
     ./modules/config/git.nix
     ./modules/config/starship.nix
     ./modules/config/fastfetch
+    ./modules/config/kitty.nix
   ];
 
   home = {
@@ -25,10 +25,8 @@
   };
 
   xdg = {
-    #stateFile."noctalia/settings.toml".source = ./assets/noctalia/settings.toml;
     configFile = {
     "niri/config.kdl".source = ./modules/config/niri-config.kdl;
-    #"noctalia/config.toml".source = ./assets/noctalia/config.toml;
     };
 
     enable = true;
@@ -39,7 +37,6 @@
     };
   };
 
-  # GTK-Theming
   gtk = {
     enable = true;
     theme = {

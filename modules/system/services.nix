@@ -7,24 +7,9 @@
     nix-ld.enable = true;
     dconf.enable = true;
     niri.enable = true;
-    driftwm.enable = true;
   };
 
-  networking = {
-    hostName = "nix-btw";
-    networkmanager.enable = true;
-    firewall = {
-      enable          = true;
-      allowedTCPPorts = [ 53317 ];
-      allowedUDPPorts = [ 53317 ];
-    };
-  };
-
-  # ── AMD GPU (RX 9070 XT) ─────────────────────────────────────
   services = {
-    xserver = {
-    	videoDrivers     = [ "amdgpu" ];
-    };
 
     gvfs.enable = true;
 
@@ -53,6 +38,10 @@
   security.rtkit.enable      = true;
 
   hardware = {
+    graphics = {
+      enable      = true;
+      enable32Bit = true;
+    };
     bluetooth = {
       enable      = true;
       powerOnBoot = true;

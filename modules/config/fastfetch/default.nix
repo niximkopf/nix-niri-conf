@@ -27,6 +27,6 @@ in
 
   xdg.configFile = {
     "fastfetch/config.jsonc".source = ./config.jsonc;
-    "fastfetch/ascii".source = ./ascii;
+    "fastfetch/ascii".source = ../../../assets/ascii;
   };
 }

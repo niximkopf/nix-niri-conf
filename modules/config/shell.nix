@@ -24,6 +24,7 @@
       gc      = "git commit -m";
       ff      = "fastfetch";
       momoi   = "momoisay -f";
+      matrix  = "cmatrix -C blue";
     };
 
     initContent = ''
