@@ -210,12 +210,11 @@ binds {
     Alt+S { screenshot-window; }
 
     Mod+Space   { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
-    Mod+A       { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
-    Mod+Shift+E { spawn "noctalia" "msg" "settings-toggle"; }
     Mod+Escape  { spawn "noctalia" "msg" "panel-toggle" "session"; }
-    Mod+Ctrl+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
-    Mod+Shift+W { spawn "noctalia" "msg" "panel-toggle" "wallpaper"; }
     Mod+Shift+Escape { spawn "noctalia" "msg" "session" "lock-and-suspend"; }
+    Mod+Shift+W { spawn "noctalia" "msg" "panel-toggle" "wallpaper"; }
+    Mod+Shift+E { spawn "noctalia" "msg" "settings-toggle"; }
+    Mod+Ctrl+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
