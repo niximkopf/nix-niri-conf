@@ -79,6 +79,5 @@
     yt-dlp
     rmpc
     (pkgs.callPackage ../../pkgs/aniworld { })
-
     ];
 }

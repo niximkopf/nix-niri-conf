@@ -11,7 +11,7 @@
     ../../modules/system/user.nix
     ../../modules/system/asus.nix
     ../../modules/system/fonts.nix
-    ../../modules/config/sddm.nix
+    ../../modules/system/sddm.nix
     ../../modules/config/nvim.nix
   ];
 

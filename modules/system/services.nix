@@ -15,15 +15,6 @@
 
     power-profiles-daemon.enable = true;
     upower.enable = true;
-  
-    displayManager = {
-      sddm = {
-        enable          = true;
-        wayland.enable  = true;
-      };
-      sessionPackages = [ pkgs.niri ];
-      defaultSession = lib.mkForce "niri";
-    };
 
     pipewire = {
       enable        = true;
