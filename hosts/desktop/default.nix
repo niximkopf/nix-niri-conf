@@ -7,6 +7,7 @@
     ../../modules/system/boot.nix
     ../../modules/system/nix.nix
     ../../modules/system/packages.nix
+    ../../modules/system/packages-stable.nix
     ../../modules/system/timezone.nix
     ../../modules/system/user.nix
     ../../modules/system/asus.nix

@@ -9,7 +9,19 @@
     niri.enable = true;
   };
 
+  systemd.services.mpd.environment.XDG_RUNTIME_DIR = "/run/user/1000";
+
   services = {
+    mpd = {
+      enable = true;
+      user = "micha";
+      settings = {
+        music_directory = "/home/micha/Music/Playlists";
+        audio_output = [
+          { type = "pipewire"; name = "PipeWire"; }
+        ];
+      };
+    };
 
     gvfs.enable = true;
 
@@ -26,7 +38,7 @@
     pulseaudio.enable = false;
   };
 
-  security.rtkit.enable      = true;
+  security.rtkit.enable = true;
 
   hardware = {
     graphics = {

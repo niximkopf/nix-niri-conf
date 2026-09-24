@@ -6,6 +6,7 @@
 
     settings = {
       format = lib.concatStrings [
+        "[ ┌](color_purple)"
         "[](color_bg2)"
         "$os"
         "[](bg:color_aqua fg:color_bg2)"
@@ -19,6 +20,7 @@
         "$time"
         "[](fg:color_purple)"
         "$line_break"
+        "[ └─](color_purple)"
         "$character"
       ];
 
@@ -87,8 +89,8 @@
 
       character = {
         disabled = false;
-        success_symbol = "[ ❯](bold fg:color_purple)";
-        error_symbol = "[ ❯](bold fg:color_aqua)";
+        success_symbol = "[❯](bold fg:color_purple)";
+        error_symbol = "[❯](bold fg:color_aqua)";
       };
     };
   };

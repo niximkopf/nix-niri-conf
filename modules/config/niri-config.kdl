@@ -1,9 +1,3 @@
-// Check the wiki for a full description of the configuration:
-// https://niri-wm.github.io/niri/Configuration:-Introduction
-
-// Input device configuration.
-// Find the full list of options on the wiki:
-// https://niri-wm.github.io/niri/Configuration:-Input
 input {
 
     tablet {
@@ -48,10 +42,6 @@ input {
         // scroll-button-lock
         // middle-emulation
     }
-
-    // Focus windows and outputs automatically when moving the mouse into them.
-    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    // focus-follows-mouse max-scroll-amount="0%"
 }
 
 output "DP-1" {
@@ -69,9 +59,6 @@ output "DP-2" {
 	position x=0 y=0
 }
 
-// Settings that influence how windows are positioned and sized.
-// Find more information on the wiki:
-// https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
     gaps 16
 
@@ -143,6 +130,7 @@ layout {
 }
 
 spawn-at-startup "noctalia"
+spawn-at-startup "easyeffects --background"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -153,9 +141,6 @@ hotkey-overlay {
 
 screenshot-path "~/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
 
-// Animation settings.
-// The wiki explains how to configure individual animations:
-// https://niri-wm.github.io/niri/Configuration:-Animations
 animations {
     slowdown 2.0
 }
@@ -202,7 +187,7 @@ binds {
     Mod+D { spawn "kitty" "-e" "ncdu"; }
     Mod+C { spawn "code"; }
     Mod+E { spawn "nemo"; }
-    //Mod+M { spawn "kitty" "-e" "musicplayer"; }
+    Mod+M { spawn "kitty" "-e" "rmpc"; }
 
     Mod+Shift+R { spawn "noctalia" "msg" "screen-recorder"; }
     Mod+Shift+S { screenshot; }
@@ -321,14 +306,6 @@ binds {
 
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-
-    // Actions to switch layouts.
-    // Note: if you uncomment these, make sure you do NOT have
-    // a matching layout switch hotkey configured in xkb options above.
-    // Having both at once on the same hotkey will break the switching,
-    // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-    // Mod+Space       { switch-layout "next"; }
-    // Mod+Shift+Space { switch-layout "prev"; }
 
     Ctrl+Alt+Delete { quit; }
 

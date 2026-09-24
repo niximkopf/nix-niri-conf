@@ -27,6 +27,7 @@
   xdg = {
     configFile = {
     "niri/config.kdl".source = ./modules/config/niri-config.kdl;
+    #"rmpc/config.ron".source = ./modules/config/rmpc.ron;
     };
 
     enable = true;

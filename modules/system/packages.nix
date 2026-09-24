@@ -13,8 +13,7 @@
     usbutils
     lshw
     nix-tree
-    nvd        
-    xwayland-satellite
+    nvd
     qbittorrent
 
     # ── Terminal Tools ─────────────────────────────────
