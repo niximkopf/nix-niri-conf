@@ -15,7 +15,7 @@
       cat     = "bat";
       cd      = "z";
       rebuild = "sudo nixos-rebuild switch --flake ~/.nixos";
-      update  = "nix flake update ~/.nixos";
+      update  = "sudo nix flake update --flake ~/.nixos";
       cleanup = "sudo nix-collect-garbage -d";
       gs      = "git status";
       gp      = "git push";
