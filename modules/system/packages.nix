@@ -58,6 +58,7 @@
 
     # ── Apps ──────────────────────────────────────────────────
     brave-origin
+    firefox
     (discord.override { withVencord = true; })
     nemo-with-extensions
     win2xcur
