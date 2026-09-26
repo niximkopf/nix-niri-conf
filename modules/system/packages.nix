@@ -78,6 +78,7 @@
     mpv
     yt-dlp
     rmpc
+    mpc
     (pkgs.callPackage ../../pkgs/aniworld { })
     ];
 }
